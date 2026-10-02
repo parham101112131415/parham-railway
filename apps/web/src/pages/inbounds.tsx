@@ -9,7 +9,7 @@ import { Switch } from "@/components/ui/switch";
 import type { Inbound } from "@/lib/types";
 
 const protocolAccent: Record<string, string> = {
-  vless: "#a3e635",
+  vless: "#ee3a3a",
   vmess: "#7dd3fc",
   trojan: "#f0abfc",
 };
@@ -61,7 +61,7 @@ export default function InboundsPage() {
                 <div className="flex min-w-0 items-center gap-2">
                   <div
                     className="grid h-9 w-9 shrink-0 place-items-center rounded-base border-2 border-border font-heading text-sm uppercase text-black"
-                    style={{ background: protocolAccent[ib.protocol] || "#a3e635" }}
+                    style={{ background: protocolAccent[ib.protocol] || "#ee3a3a" }}
                   >
                     {ib.protocol.slice(0, 2)}
                   </div>

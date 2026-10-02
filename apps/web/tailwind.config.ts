@@ -9,7 +9,10 @@ export default {
   theme: {
     extend: {
       colors: {
-        main: "var(--main)",
+        main: ({ opacityValue }: { opacityValue?: string }) =>
+          opacityValue === undefined
+            ? "rgb(var(--main))"
+            : `rgb(var(--main) / ${opacityValue})`,
         overlay: "var(--overlay)",
         bg: "var(--bg)",
         bw: "var(--bw)",

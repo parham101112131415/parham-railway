@@ -97,7 +97,7 @@ function TrafficBar({ user }: { user: User }) {
         }
       />
       <div className="flex items-center gap-3 text-[11px] font-base">
-        <span className="text-lime-500">↓ {formatBytes(user.down)}</span>
+        <span className="text-red-500">↓ {formatBytes(user.down)}</span>
         <span className="text-sky-400">↑ {formatBytes(user.up)}</span>
       </div>
     </div>
@@ -110,7 +110,7 @@ function OnlineDot({ online }: { online: boolean }) {
       <span
         className={cn(
           "inline-block h-2.5 w-2.5 rounded-full border-2 border-border",
-          online ? "animate-pulse bg-lime-400" : "bg-zinc-500",
+          online ? "animate-pulse bg-red-500" : "bg-zinc-500",
         )}
       />
       <span className="text-xs font-base text-text/60">{online ? onlineLabel : offlineLabel}</span>
@@ -297,7 +297,7 @@ export default function UsersPage() {
       </div>
 
       <div className="grid grid-cols-2 gap-3 sm:gap-4 xl:grid-cols-4">
-        <SummaryCard icon={Users2} label={t("clients")} value={summary.clients} accent="#a3e635" />
+        <SummaryCard icon={Users2} label={t("clients")} value={summary.clients} accent="#ee3a3a" />
         <SummaryCard icon={Wifi} label={t("online")} value={summary.online} accent="#7dd3fc" />
         <SummaryCard icon={ShieldCheck} label={t("active")} value={summary.active} accent="#86efac" />
         <SummaryCard

@@ -29,7 +29,7 @@ const icons = {
 };
 
 const styles: Record<ToastKind, string> = {
-  success: "bg-lime-300 text-black",
+  success: "bg-red-500 text-white",
   error: "bg-red-300 text-black",
   info: "bg-sky-300 text-black",
 };

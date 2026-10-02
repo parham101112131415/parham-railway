@@ -1,12 +1,12 @@
 /**
- * SideRail - Xray-core VPN management panel
- * Copyright (c) 2025 icubaby. All rights reserved.
- * Official repository: https://github.com/icubaby/SideRail
+ * Parham - Xray-core VPN management panel
+ * Copyright (c) 2025 Parham. All rights reserved.
+ * Official repository: https://github.com/parham101112131415/parham-railway
  *
- * Licensed under the SideRail Proprietary License (see LICENSE).
+ * Licensed under the Parham Proprietary License (see LICENSE).
  * Unauthorized selling, white-labeling, or removal of attribution,
  * branding, or the embedded authorship identifiers is prohibited.
- * Watermark: sr-icubaby-2025-9f4c1a7e
+ * Watermark: sr-parham-2025
  */
 import React from "react";
 import ReactDOM from "react-dom/client";
@@ -16,6 +16,7 @@ import App from "./App";
 import { AuthProvider } from "./lib/auth";
 import { I18nProvider } from "./lib/i18n";
 import { ToastProvider } from "./components/ui/toast";
+import ParhamFx from "./components/parham-fx";
 import "./index.css";
 
 const queryClient = new QueryClient({
@@ -31,6 +32,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
         <I18nProvider>
           <ToastProvider>
             <AuthProvider>
+              <ParhamFx />
               <App />
             </AuthProvider>
           </ToastProvider>

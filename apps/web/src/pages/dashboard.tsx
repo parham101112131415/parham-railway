@@ -184,7 +184,7 @@ export default function DashboardPage() {
           value={pct(s?.cpu.usage ?? 0)}
           sub={`${s?.cpu.cores ?? 0} ${t("cores")} · ${t("avg")} ${pct(s?.cpu.avg ?? 0)}`}
           progress={s?.cpu.usage ?? 0}
-          accent="#a3e635"
+          accent="#ee3a3a"
         />
         <StatCard
           icon={MemoryStick}

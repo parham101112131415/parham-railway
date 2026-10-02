@@ -9,7 +9,7 @@ const buttonVariants = cva(
     variants: {
       variant: {
         default:
-          "border-2 border-border bg-main text-mtext neo-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none active:translate-x-boxShadowX active:translate-y-boxShadowY active:shadow-none",
+          "border-2 border-main/60 bg-gradient-to-b from-main to-main/80 text-mtext shadow-[0_0_18px_rgb(var(--main)/0.28)] hover:shadow-[0_0_26px_rgb(var(--main)/0.5)] hover:brightness-110",
         neutral:
           "border-2 border-border bg-bw text-text neo-shadow hover:translate-x-boxShadowX hover:translate-y-boxShadowY hover:shadow-none",
         reverse:

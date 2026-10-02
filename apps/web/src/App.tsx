@@ -1,12 +1,12 @@
 /**
- * SideRail - Xray-core VPN management panel
- * Copyright (c) 2025 icubaby. All rights reserved.
- * Official repository: https://github.com/icubaby/SideRail
+ * Parham - Xray-core VPN management panel
+ * Copyright (c) 2025 Parham. All rights reserved.
+ * Official repository: https://github.com/parham101112131415/parham-railway
  *
- * Licensed under the SideRail Proprietary License (see LICENSE).
+ * Licensed under the Parham Proprietary License (see LICENSE).
  * Unauthorized selling, white-labeling, or removal of attribution,
  * branding, or the embedded authorship identifiers is prohibited.
- * Watermark: sr-icubaby-2025-9f4c1a7e
+ * Watermark: sr-parham-2025
  */
 import { Routes, Route, Navigate, useLocation } from "react-router-dom";
 import { useAuth } from "./lib/auth";
@@ -57,7 +57,7 @@ function FullscreenLoader() {
         <RailLogo className="h-9 w-9" />
       </div>
       <div className="text-center">
-        <div className="font-heading text-2xl tracking-tight">SideRail</div>
+        <div className="font-heading text-2xl tracking-tight">Parham</div>
         <div className="mt-1 flex items-center justify-center gap-2 text-sm text-text/60">
           <Spinner className="h-4 w-4" />
           Loading…

@@ -1,0 +1,233 @@
+/* ── Parham red/black animated theme FX ───────────────────────────────
+   UI sounds: Kenney "Interface Sounds" (CC0) — see ../../statics/sfx/LICENSE-kenney.txt */
+
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background: linear-gradient(-45deg, #050000, #2b0000, #4d0505, #120000);
+  background-size: 400% 400%;
+  animation: px-bg-flow 16s ease infinite;
+  opacity: 0;
+  transition: opacity 0.6s ease;
+}
+
+/* Only show the animated backdrop in dark mode (the Parham look) */
+.dark body::before,
+body.px-force-bg::before {
+  opacity: 1;
+}
+
+@keyframes px-bg-flow {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+#px-bubbles {
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+}
+
+/* Keep app content above the FX layer */
+#root {
+  position: relative;
+  z-index: 1;
+}
+
+/* ── Brand glow ── */
+.px-brand {
+  animation: px-glow-pulse 3.2s ease-in-out infinite;
+}
+
+@keyframes px-glow-pulse {
+  0%, 100% { text-shadow: 0 0 6px rgba(239, 68, 68, 0.25); }
+  50% { text-shadow: 0 0 20px rgba(239, 68, 68, 0.7); }
+}
+
+/* ── Button press FX ── */
+.px-press {
+  filter: brightness(1.3) saturate(1.25) !important;
+}
+
+.px-ripple {
+  position: absolute;
+  border-radius: 9999px;
+  background: radial-gradient(circle, rgba(255, 80, 80, 0.55), transparent 60%);
+  transform: scale(0);
+  animation: px-ripple 0.6s ease-out forwards;
+  pointer-events: none;
+}
+
+.px-ripple.px-r2 {
+  animation-delay: 0.09s;
+}
+
+@keyframes px-ripple {
+  from { transform: scale(0); opacity: 0.55; }
+  to { transform: scale(2.6); opacity: 0; }
+}
+
+.px-spark {
+  position: absolute;
+  width: 6px;
+  height: 6px;
+  border-radius: 9999px;
+  pointer-events: none;
+  z-index: 6;
+  background: radial-gradient(circle, #fff 0%, rgba(255, 120, 80, 0.95) 40%, rgba(239, 68, 68, 0) 70%);
+  animation: px-spark 0.55s cubic-bezier(0.1, 0.7, 0.3, 1) forwards;
+}
+
+@keyframes px-spark {
+  from { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  to { transform: translate(calc(-50% + var(--dx)), calc(-50% + var(--dy))) scale(0.15); opacity: 0; }
+}
+
+button.px-needs-ripple,
+.px-needs-ripple {
+  position: relative;
+  overflow: hidden;
+}
+
+/* ── Modal pop + shake (Radix Dialogs) ── */
+[role='dialog'][data-state='open'],
+[role='alertdialog'][data-state='open'] {
+  animation: px-pop 0.28s cubic-bezier(0.2, 0.9, 0.3, 1.35);
+}
+
+@keyframes px-pop {
+  from { transform: scale(0.9); opacity: 0.5; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+.px-shake {
+  animation: px-shake 0.45s ease !important;
+}
+
+@keyframes px-shake {
+  0%, 100% { transform: translateX(0); }
+  20% { transform: translateX(-7px); }
+  40% { transform: translateX(7px); }
+  60% { transform: translateX(-4px); }
+  80% { transform: translateX(4px); }
+}
+
+/* ── Accordion chevron (Radix/shadcn) ── */
+svg.lucide-chevron-down {
+  transition: transform 0.35s ease;
+}
+
+[data-state='open'] svg.lucide-chevron-down {
+  transform: rotate(180deg);
+}
+
+/* ── Entrance ── */
+.px-in {
+  animation: px-in 0.6s cubic-bezier(0.2, 0.7, 0.3, 1) both;
+}
+
+@keyframes px-in {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ── Mute button ── */
+.px-mute {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 99999;
+  padding: 0.4rem 0.55rem;
+  font-size: 1.05rem;
+  line-height: 1;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  cursor: pointer;
+  background: rgba(20, 4, 4, 0.75);
+  color: #fca5a5;
+  user-select: none;
+  box-shadow: 0 0 12px rgba(239, 68, 68, 0.35);
+  transition: all 0.2s ease;
+}
+
+.px-mute:hover {
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.7);
+  transform: translateY(-2px);
+}
+
+/* ── v2: red scrollbar ── */
+*::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+*::-webkit-scrollbar-track {
+  background: rgba(10, 2, 2, 0.6);
+}
+
+*::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #7f1d1d, #450a0a);
+  border-radius: 8px;
+  border: 2px solid rgba(10, 2, 2, 0.6);
+}
+
+*::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #ef4444, #7f1d1d);
+  box-shadow: 0 0 10px rgba(239, 68, 68, 0.5);
+}
+
+* {
+  scrollbar-width: thin;
+  scrollbar-color: #7f1d1d rgba(10, 2, 2, 0.6);
+}
+
+/* ── v2: card hover glow ── */
+[data-slot='card']:hover,
+.card-hover-glow:hover {
+  border-color: rgba(239, 68, 68, 0.45) !important;
+  box-shadow: 0 0 24px rgba(239, 68, 68, 0.14), 0 8px 32px rgba(0, 0, 0, 0.35) !important;
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;
+}
+
+/* ── v2: sidebar active item glow ── */
+[data-active='true'] {
+  box-shadow: inset 2px 0 0 #ef4444, 0 0 16px rgba(239, 68, 68, 0.25) !important;
+}
+
+/* ── v2: logo glow ring ── */
+.px-logo-glow {
+  border-radius: 9999px;
+  box-shadow: 0 0 18px rgba(239, 68, 68, 0.45), 0 0 46px rgba(239, 68, 68, 0.2);
+  animation: px-logo-breathe 3.2s ease-in-out infinite;
+}
+
+@keyframes px-logo-breathe {
+  0%, 100% { box-shadow: 0 0 14px rgba(239, 68, 68, 0.35), 0 0 34px rgba(239, 68, 68, 0.15); }
+  50% { box-shadow: 0 0 26px rgba(239, 68, 68, 0.65), 0 0 60px rgba(239, 68, 68, 0.3); }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  body::before,
+  .px-brand,
+  .px-logo-glow,
+  .px-in,
+  .px-ripple,
+  .px-shake,
+  [role='dialog'][data-state='open'],
+  [role='alertdialog'][data-state='open'] {
+    animation: none !important;
+  }
+  .px-ripple,
+  .px-spark,
+  #px-bubbles {
+    display: none !important;
+  }
+  svg.lucide-chevron-down {
+    transition: none !important;
+  }
+}

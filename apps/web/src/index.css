@@ -1,17 +1,18 @@
+@import "./components/parham-fx.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 :root {
-  --main: #a3e635;
+  --main: 238 58 58;
   --overlay: rgba(0, 0, 0, 0.8);
   --bg: #dfe5f2;
   --bw: #fff;
   --blank: #000;
   --border: #000;
   --text: #000;
-  --mtext: #000;
-  --ring: #000;
+  --mtext: #fff;
+  --ring: #ee3a3a;
   --ring-offset: #fff;
   --shadow: 4px 4px 0px 0px var(--border);
   --gap: 1rem;
@@ -19,15 +20,16 @@
 }
 
 .dark {
-  --main: #a3e635;
+  color-scheme: dark;
+  --main: 238 58 58;
   --overlay: rgba(0, 0, 0, 0.85);
   --bg: #0b0b0f;
   --bw: #16161d;
   --blank: #fff;
   --border: #000;
   --text: #e8e8ea;
-  --mtext: #000;
-  --ring: #a3e635;
+  --mtext: #fff;
+  --ring: #ee3a3a;
   --ring-offset: #0b0b0f;
   --shadow: 4px 4px 0px 0px #000;
 }
@@ -171,7 +173,12 @@ body {
   background: transparent;
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--main);
+  background: #ee3a3a;
   border: 2px solid var(--border);
   border-radius: 6px;
+}
+
+::selection {
+  background: rgb(var(--main) / 0.45);
+  color: #fff;
 }
